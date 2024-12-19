@@ -3,7 +3,7 @@
 #define ARDUINO_PCA95x5_H
 
 #include <Arduino.h>
-#include <Wire.h>
+#include <ESP32_SoftWire.h>
 
 namespace PCA95x5 {
 
@@ -56,7 +56,7 @@ namespace Direction {
     enum DirectionAll : uint16_t { OUT_ALL = 0x0000, IN_ALL = 0xFFFF };
 }  // namespace Direction
 
-template <typename WireType = TwoWire>
+template <typename WireType = SoftWire>
 class PCA95x5 {
     union Ports {
         uint16_t w;
