@@ -1,11 +1,11 @@
 #pragma once
-#ifndef ARDUINO_PCA95x5_H
-#define ARDUINO_PCA95x5_H
+#ifndef ARDUINO_PCA95x5_SoftWire_H
+#define ARDUINO_PCA95x5_SoftWire_H
 
 #include <Arduino.h>
 #include <ESP32_SoftWire.h>
 
-namespace PCA95x5 {
+namespace PCA95x5_SoftWire {
 
 namespace Reg {
     enum : uint8_t {
@@ -57,7 +57,7 @@ namespace Direction {
 }  // namespace Direction
 
 template <typename WireType = SoftWire>
-class PCA95x5 {
+class PCA95x5_SoftWire {
     union Ports {
         uint16_t w;
         uint8_t b[2];
@@ -164,9 +164,9 @@ private:
     }
 };
 
-}  // namespace PCA95x5
+}  // namespace PCA95x5_SoftWire
 
-using PCA9535 = PCA95x5::PCA95x5<>;
-using PCA9555 = PCA95x5::PCA95x5<>;
+using PCA9535_SoftWire = PCA95x5_SoftWire::PCA95x5_SoftWire<>;
+using PCA9555_SoftWire = PCA95x5_SoftWire::PCA95x5_SoftWire<>;
 
-#endif // ARDUINO_PCA95x5_H
+#endif // ARDUINO_PCA95x5_SoftWire_H
